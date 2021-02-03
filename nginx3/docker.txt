@@ -1,0 +1,26 @@
+1.建立docker file
+2.docker build . -t chatbot
+3.docker run -it -p 5000:8080 chatbot /bin/bash
+4.ls
+5.docker ps
+
+ID: 614eae37c40d
+name: chatbot
+
+
+docker-compose build
+docker-compose up -d
+docker ps
+docker logs -f nginx
+docker exec -it flask bash
+
+docker images -f dangling=true
+docker image prune
+#docker rm -f $(docker ps -aq)
+docker image -a
+
+flask container:
+    uwsgitop :9191
+docker stats
+
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' flask

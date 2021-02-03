@@ -1,0 +1,18 @@
+from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+import json
+import types
+from datetime import datetime
+from django.views.decorators.clickjacking import xframe_options_exempt
+
+
+@xframe_options_exempt
+def edelweiss_cream(request):
+
+    return render(
+        request,
+        'myweb/index.html',
+        {},
+    )
+

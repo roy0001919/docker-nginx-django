@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+
+  eforminternal:
+    build: ./202102_activity_web
+    container_name: 202102_activity_web
+    restart: always
+#    volumes:api_data:/api/static
+    command: uwsgi --ini uwsgi.ini
+    expose:
+      - 8000
+
+  edelweiss:
+    build: ./edelweiss_cream2
+    container_name: edelweiss_cream2
+    restart: always
+    #    volumes:api_data:/api/static
+    command: uwsgi --ini uwsgi.ini
+    expose:
+      - 8000
+
+  nginx:
+    container_name: nginx3
+    build: ./nginx3
+    restart: always
+    volumes:
+      - /home/jenkins/workspace/EventSite/EventSIte-Development/202102_activity_web/static:/opt/static
+    ports:
+      ["80:80","443:443"]
